@@ -1,0 +1,17 @@
+CREATE DATABASE ValhallaDB;
+GO
+
+USE ValhallaDB;
+GO
+
+CREATE TABLE Vikingos (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    BatallasGanadas INT NOT NULL,
+    ArmaFavorita NVARCHAR(50) NOT NULL,
+    NivelHonor INT NOT NULL,
+    CausaMuerte NVARCHAR(250) NOT NULL,
+    Fuerza INT NOT NULL,
+    HabilidadTactica INT NOT NULL,
+    Sabiduria INT NOT NULL
+);
