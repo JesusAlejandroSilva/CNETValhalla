@@ -1,0 +1,81 @@
+[
+  {
+    "ContainingType": "VikingosAPI.Controllers.VikingosController",
+    "Method": "Buscar",
+    "RelativePath": "api/Vikingos/Buscar/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VikingosAPI.Controllers.VikingosController",
+    "Method": "Editar",
+    "RelativePath": "api/Vikingos/Editar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vikingos",
+        "Type": "Vikingos.Shared.VikingosDTO",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VikingosAPI.Controllers.VikingosController",
+    "Method": "Eliminar",
+    "RelativePath": "api/Vikingos/Eliminar/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VikingosAPI.Controllers.VikingosController",
+    "Method": "Guardar",
+    "RelativePath": "api/Vikingos/Guardar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vikingos",
+        "Type": "Vikingos.Shared.VikingosDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VikingosAPI.Controllers.VikingosController",
+    "Method": "Lista",
+    "RelativePath": "api/Vikingos/Lista",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

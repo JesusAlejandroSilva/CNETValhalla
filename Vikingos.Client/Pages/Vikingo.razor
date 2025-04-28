@@ -1,0 +1,106 @@
+﻿@page "/vikingo"
+@page "/vikingo/{idvikingoEditar:int}"
+
+@using Shared;
+@using Services;
+
+@inject IVikingosService vikingoService;
+@inject NavigationManager navegacion;
+
+
+<h3>@titulo</h3>
+
+<EditForm Model="vikingos" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+
+    <div class="mb-3">
+        <label class="form-label">Nombre Completo</label>
+        <InputText class="form-control" @bind-Value="vikingos.Nombre"></InputText>
+        <ValidationMessage For="@(() => vikingos.Nombre)"></ValidationMessage>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Batallas Ganadas</label>
+        <InputNumber class="form-control" @bind-Value="vikingos.BatallasGanadas"></InputNumber>
+        <ValidationMessage For="@(() => vikingos.BatallasGanadas)"></ValidationMessage>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Arma Favorita</label>
+        <InputText class="form-control" @bind-Value="vikingos.ArmaFavorita"></InputText>
+        <ValidationMessage For="@(() => vikingos.ArmaFavorita)"></ValidationMessage>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">NivelHonor</label>
+        <InputNumber class="form-control" @bind-Value="vikingos.NivelHonor"></InputNumber>
+        <ValidationMessage For="@(() => vikingos.NivelHonor)"></ValidationMessage>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Causa De Muerte</label>
+        <InputText class="form-control" @bind-Value="vikingos.CausaMuerte"></InputText>
+        <ValidationMessage For="@(() => vikingos.CausaMuerte)"></ValidationMessage>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fuerza</label>
+        <InputNumber class="form-control" @bind-Value="vikingos.Fuerza"></InputNumber>
+        <ValidationMessage For="@(() => vikingos.Fuerza)"></ValidationMessage>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">HabilidadTactica</label>
+        <InputNumber class="form-control" @bind-Value="vikingos.HabilidadTactica"></InputNumber>
+        <ValidationMessage For="@(() => vikingos.HabilidadTactica)"></ValidationMessage>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Sabiduria</label>
+        <InputNumber class="form-control" @bind-Value="vikingos.Sabiduria"></InputNumber>
+        <ValidationMessage For="@(() => vikingos.Sabiduria)"></ValidationMessage>
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+        @btnTexto
+    </button>
+
+    <a class="btn btn-warning" href="empleados">Volver</a>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int idvikingoEditar { get; set; } = 0;
+
+
+    string titulo = string.Empty;
+    string btnTexto = string.Empty;
+
+    VikingosDTO vikingos = new VikingosDTO();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (idvikingoEditar != 0)
+        {
+            vikingos = await vikingoService.Buscar(idvikingoEditar);
+            btnTexto = "Actualizar Vikingo";
+            titulo = "Editar Vikingo";
+        }
+        else
+        {
+            btnTexto = "Guardar Vikingo";
+            titulo = "Nuevo Vikingo";
+        }
+    }
+
+    private async Task OnValidSubmit()
+    {
+        int idDevuelto = 0;
+        if (idvikingoEditar == 0)
+            idDevuelto = await vikingoService.Guardar(vikingos);
+        else
+            idDevuelto = await vikingoService.Editar(vikingos);
+
+
+        if (idDevuelto != 0)
+            navegacion.NavigateTo("/vikingos");
+
+    }
+
+
+}

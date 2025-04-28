@@ -1,0 +1,99 @@
+﻿@page "/vikingos"
+
+@using Shared;
+@using Services;
+@using CurrieTechnologies.Razor.SweetAlert2;
+
+@inject SweetAlertService Swal;
+@inject IVikingosService vikingosService;
+
+
+<h3>Vikingos</h3>
+
+<a class="btn btn-success btn-sm mb-3" href="vikingo">Nuevo Vikingo</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>BatallasGanadas</th>
+            <th>ArmaFavorita</th>
+            <th>NivelHonor</th>
+            <th>CausaMuerte</th>
+            <th>Fuerza</th>
+            <th>HabilidadTactica</th>
+            <th>Sabiduria</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (listaVikingos == null)
+        {
+
+            <tr>
+                <td colspan="5" align="center">
+                    <img style="width:50px" src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" />
+                </td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in listaVikingos)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.BatallasGanadas</td>
+                    <td>@item.ArmaFavorita</td>
+                    <td>@item.NivelHonor</td>
+                    <td>@item.CausaMuerte</td>
+                    <td>@item.Fuerza</td>
+                    <td>@item.HabilidadTactica</td>
+                    <td>@item.Sabiduria</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="vikingo/@item.Id">
+                            <i class="oi oi-pencil"></i>
+                        </a>
+                        <button type="button" class="btn btn-danger btn-sm ms-2" @onclick="(() => Eliminar(item.Id))">
+                            <i class="oi oi-trash"></i>
+                        </button>
+
+                    </td>
+                </tr>
+            }
+        }
+
+
+
+    </tbody>
+</table>
+
+@code {
+    List<VikingosDTO>? listaVikingos = null;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        listaVikingos = await vikingosService.Lista();
+    }
+
+    private async Task Eliminar(int id)
+    {
+        var resultado = await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "Eliminar El Vikingo",
+                Text = "Deseas eliminar el Vikingo?",
+                Icon = SweetAlertIcon.Question,
+                ShowCancelButton = true
+            });
+
+        if (resultado.IsConfirmed)
+        {
+            var eliminado = await vikingosService.Eliminar(id);
+
+            if (eliminado)
+                listaVikingos = listaVikingos!.FindAll(e => e.Id != id);
+        }
+    }
+
+}

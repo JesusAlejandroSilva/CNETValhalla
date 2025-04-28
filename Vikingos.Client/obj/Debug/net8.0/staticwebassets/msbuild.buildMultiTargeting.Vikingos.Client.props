@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Vikingos.Client.props" />
+</Project>

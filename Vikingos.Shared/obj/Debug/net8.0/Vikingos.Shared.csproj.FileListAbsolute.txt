@@ -1,0 +1,11 @@
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\bin\Debug\net8.0\Vikingos.Shared.deps.json
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\bin\Debug\net8.0\Vikingos.Shared.dll
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\bin\Debug\net8.0\Vikingos.Shared.pdb
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\obj\Debug\net8.0\Vikingos.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\obj\Debug\net8.0\Vikingos.Shared.AssemblyInfoInputs.cache
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\obj\Debug\net8.0\Vikingos.Shared.AssemblyInfo.cs
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\obj\Debug\net8.0\Vikingos.Shared.csproj.CoreCompileInputs.cache
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\obj\Debug\net8.0\Vikingos.Shared.dll
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\obj\Debug\net8.0\refint\Vikingos.Shared.dll
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\obj\Debug\net8.0\Vikingos.Shared.pdb
+C:\Users\alejo\source\repos\VikingosBlazor\Vikingos.Shared\obj\Debug\net8.0\ref\Vikingos.Shared.dll
